@@ -62,9 +62,17 @@ public:
 template <class ValType>
 TVector<ValType>::TVector(int s, int si)
 {
-	pVector = new ValType[s];
-	Size = s;
-	StartIndex = si;
+	if (s>MAX_MATRIX_SIZE)
+	{
+		throw "can`t be folded";
+	}
+	else
+	{
+
+		pVector = new ValType[s];
+		Size = s;
+		StartIndex = si;
+	}
 } /*-------------------------------------------------------------------------*/
 
 template <class ValType> //конструктор копирования
