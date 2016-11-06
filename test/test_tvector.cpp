@@ -86,7 +86,7 @@ TEST(TVector, throws_when_set_element_with_too_large_index)   //?? проверь
 {
 	TVector<int> v(4);
 
-	ASSERT_ANY_THROW(v[5]);
+	ASSERT_ANY_THROW(v[5]); // или через  MAX VECTOR SIZE?
 }
 
 TEST(TVector, can_assign_vector_to_itself)  ///&&&&&&&&&&&&

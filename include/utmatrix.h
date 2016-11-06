@@ -62,7 +62,7 @@ public:
 template <class ValType>
 TVector<ValType>::TVector(int s, int si)
 {
-	if (s>MAX_MATRIX_SIZE)
+	if ((s>MAX_MATRIX_SIZE)|(si<0))
 	{
 		throw "can`t be folded";
 	}
@@ -93,7 +93,14 @@ TVector<ValType>::~TVector()
 template <class ValType> // доступ
 ValType& TVector<ValType>::operator[](int pos)
 {
-	return pVector[pos - StartIndex];
+	int n;
+	n = pos - StartIndex;
+	if ((n<0)|(n>MAX_VECTOR_SIZE))
+	{throw "can`t refer to elem" }
+	else
+	{
+		return pVector[n];
+	}
 } /*-------------------------------------------------------------------------*/
 
 template <class ValType> // сравнение
@@ -180,24 +187,47 @@ template <class ValType> // сложение
 TVector<ValType> TVector<ValType>::operator+(const TVector<ValType> &v)
 {
 	TVector temp(Size, StartIndex);
-	for (int i = 0; i < Size; i++) temp.pVector[i] = pVector[i] + v.pVector[i];
-	return temp;
+	if (v.Size != Size)
+	{
+		throw "can`t be folded";
+	}
+	else
+	{
+		for (int i = 0; i < Size; i++) temp.pVector[i] = pVector[i] + v.pVector[i];
+		return temp;
+	}
 } /*-------------------------------------------------------------------------*/
 
 template <class ValType> // вычитание
 TVector<ValType> TVector<ValType>::operator-(const TVector<ValType> &v)
 {
 	TVector temp(Size, StartIndex);
-	for (int i = 0; i < Size; i++) temp.pVector[i] = pVector[i] - v.pVector[i];
-	return temp;
+	if (v.Size != Size)
+	{
+		throw "can`t be folded";
+	}
+	else
+	{
+		TVector temp(Size, StartIndex);
+		for (int i = 0; i < Size; i++) temp.pVector[i] = pVector[i] - v.pVector[i];
+		return temp;
+	}
 } /*-------------------------------------------------------------------------*/
 
 template <class ValType> // скалярное произведение
 ValType TVector<ValType>::operator*(const TVector<ValType> &v)
 {
-	ValType temp = 0;
-	for (int i = 0; i < Size; i++) temp = temp + pVector[i] * v.pVector[i];
-	return temp;
+	TVector temp(Size, StartIndex);
+	if (v.Size != Size)
+	{
+		throw "can`t be folded";
+	}
+	else
+	{
+		ValType temp = 0;
+		for (int i = 0; i < Size; i++) temp = temp + pVector[i] * v.pVector[i];
+		return temp;
+	}
 } /*-------------------------------------------------------------------------*/
 
 
@@ -233,8 +263,15 @@ public:
 template <class ValType>
 TMatrix<ValType>::TMatrix(int s): TVector<TVector<ValType> >(s)
 {
-	for (int i = 0; i < s; i++)
-		pVector[i] = TVector<ValType>(s - i, i);
+	if ((s > MAX_MATRIX_SIZE)|(s<0))
+	{
+		throw "can`t be folded";
+	}
+	else
+	{
+		for (int i = 0; i < s; i++)
+			pVector[i] = TVector<ValType>(s - i, i);
+	}
 } /*-------------------------------------------------------------------------*/
 
 template <class ValType> // конструктор копирования
