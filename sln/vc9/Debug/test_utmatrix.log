@@ -1,23 +1,9 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (gtest.vcxproj, sample_utmatrix.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   test_tvector.cpp
-g:\work\tsepl\mp2-lab2-matrix\include\utmatrix.h(104): error C2043: illegal break
-  g:\work\tsepl\mp2-lab2-matrix\include\utmatrix.h(101): note: while compiling class template member function 'bool TVector<int>::operator ==(const TVector<int> &) const'
-  g:\work\tsepl\mp2-lab2-matrix\gtest\gtest.h(18863): note: see reference to function template instantiation 'bool TVector<int>::operator ==(const TVector<int> &) const' being compiled
-  g:\work\tsepl\mp2-lab2-matrix\gtest\gtest.h(18900): note: see reference to function template instantiation 'testing::AssertionResult testing::internal::CmpHelperEQ<T1,T2>(const char *,const char *,const T1 &,const T2 &)' being compiled
-          with
-          [
-              T1=TVector<int>,
-              T2=TVector<int>
-          ]
-  g:\work\tsepl\mp2-lab2-matrix\test\test_tvector.cpp(41): note: see reference to function template instantiation 'testing::AssertionResult testing::internal::EqHelper<false>::Compare<TVector<int>,TVector<int>>(const char *,const char *,const T1 &,const T2 &)' being compiled
-          with
-          [
-              T1=TVector<int>,
-              T2=TVector<int>
-          ]
-  g:\work\tsepl\mp2-lab2-matrix\test\test_tvector.cpp(41): note: see reference to function template instantiation 'testing::AssertionResult testing::internal::EqHelper<false>::Compare<TVector<int>,TVector<int>>(const char *,const char *,const T1 &,const T2 &)' being compiled
-          with
-          [
-              T1=TVector<int>,
-              T2=TVector<int>
-          ]
+g:\work\tsepl\mp2-lab2-matrix\test\test_tvector.cpp(99): warning C4002: too many actual parameters for macro 'ASSERT_NO_THROW'
+g:\work\tsepl\mp2-lab2-matrix\include\utmatrix.h(124): error C2043: illegal break
+  g:\work\tsepl\mp2-lab2-matrix\include\utmatrix.h(121): note: while compiling class template member function 'bool TVector<int>::operator !=(const TVector<int> &) const'
+  g:\work\tsepl\mp2-lab2-matrix\gtest\gtest.h(18992): note: see reference to function template instantiation 'bool TVector<int>::operator !=(const TVector<int> &) const' being compiled
+  g:\work\tsepl\mp2-lab2-matrix\include\utmatrix.h(80): note: while compiling class template member function 'TVector<int>::TVector(const TVector<int> &)'
+  g:\work\tsepl\mp2-lab2-matrix\test\test_tvector.cpp(29): note: see reference to function template instantiation 'TVector<int>::TVector(const TVector<int> &)' being compiled
+  g:\work\tsepl\mp2-lab2-matrix\test\test_tvector.cpp(7): note: see reference to class template instantiation 'TVector<int>' being compiled

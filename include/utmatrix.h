@@ -121,7 +121,7 @@ bool TVector<ValType>::operator!=(const TVector &v) const
 {
 	bool t;
 	t = true;
-	if (Size = v.Size) { t = false; break; }
+	if (Size == v.Size) { t = false; break; }
 	else
 	{
 		for (int i = 0; i < Size; i++)
