@@ -1,9 +1,39 @@
-﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (gtest.vcxproj, sample_utmatrix.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  test_tvector.cpp
-g:\work\tsepl\mp2-lab2-matrix\test\test_tvector.cpp(99): warning C4002: too many actual parameters for macro 'ASSERT_NO_THROW'
-g:\work\tsepl\mp2-lab2-matrix\include\utmatrix.h(124): error C2043: illegal break
-  g:\work\tsepl\mp2-lab2-matrix\include\utmatrix.h(121): note: while compiling class template member function 'bool TVector<int>::operator !=(const TVector<int> &) const'
-  g:\work\tsepl\mp2-lab2-matrix\gtest\gtest.h(18992): note: see reference to function template instantiation 'bool TVector<int>::operator !=(const TVector<int> &) const' being compiled
-  g:\work\tsepl\mp2-lab2-matrix\include\utmatrix.h(80): note: while compiling class template member function 'TVector<int>::TVector(const TVector<int> &)'
-  g:\work\tsepl\mp2-lab2-matrix\test\test_tvector.cpp(29): note: see reference to function template instantiation 'TVector<int>::TVector(const TVector<int> &)' being compiled
-  g:\work\tsepl\mp2-lab2-matrix\test\test_tvector.cpp(7): note: see reference to class template instantiation 'TVector<int>' being compiled
+﻿Build started 07.11.2016 11:48:37.
+     1>Project "C:\temp\tseplyaeva\mp2-lab2-matrix\sln\vc9\test_utmatrix.vcxproj" on node 2 (Build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(381,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (gtest.vcxproj, sample_utmatrix.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I../../gtest /I../../include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\test\test_tmatrix.cpp
+         test_tmatrix.cpp
+     1>c:\temp\tseplyaeva\mp2-lab2-matrix\gtest\gtest.h(18863): warning C4805: '==' : unsafe mix of type 'const int' and type 'const bool' in operation
+                 c:\temp\tseplyaeva\mp2-lab2-matrix\gtest\gtest.h(18900) : see reference to function template instantiation 'testing::AssertionResult testing::internal::CmpHelperEQ<T1,T2>(const char *,const char *,const T1 &,const T2 &)' being compiled
+                 with
+                 [
+                     T1=int
+         ,            T2=bool
+                 ]
+                 c:\temp\tseplyaeva\mp2-lab2-matrix\test\test_tmatrix.cpp(115) : see reference to function template instantiation 'testing::AssertionResult testing::internal::EqHelper<false>::Compare<int,bool>(const char *,const char *,const T1 &,const T2 &)' being compiled
+                 with
+                 [
+                     T1=int
+         ,            T2=bool
+                 ]
+                 c:\temp\tseplyaeva\mp2-lab2-matrix\test\test_tmatrix.cpp(115) : see reference to function template instantiation 'testing::AssertionResult testing::internal::EqHelper<false>::Compare<int,bool>(const char *,const char *,const T1 &,const T2 &)' being compiled
+                 with
+                 [
+                     T1=int
+         ,            T2=bool
+                 ]
+     1>Project "C:\temp\tseplyaeva\mp2-lab2-matrix\sln\vc9\test_utmatrix.vcxproj" (1) is building "C:\temp\tseplyaeva\mp2-lab2-matrix\sln\vc9\gtest.vcxproj" (2:3) on node 2 (GetResolvedLinkLibs target(s)).
+     2>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(381,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (sample_utmatrix.vcxproj, test_utmatrix.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+     2>Done Building Project "C:\temp\tseplyaeva\mp2-lab2-matrix\sln\vc9\gtest.vcxproj" (GetResolvedLinkLibs target(s)).
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\temp\tseplyaeva\mp2-lab2-matrix\sln\vc9\Debug\test_utmatrix.exe" /INCREMENTAL /NOLOGO /LIBPATH:Debug gtest.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\temp\tseplyaeva\mp2-lab2-matrix\sln\vc9\Debug\test_utmatrix.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\temp\tseplyaeva\mp2-lab2-matrix\sln\vc9\Debug\test_utmatrix.lib" /MACHINE:X86 /SAFESEH Debug\test_main.obj
+         Debug\test_tmatrix.obj
+         Debug\test_tvector.obj
+         "C:\temp\tseplyaeva\mp2-lab2-matrix\sln\vc9\Debug\gtest.lib"
+         test_utmatrix.vcxproj -> C:\temp\tseplyaeva\mp2-lab2-matrix\sln\vc9\Debug\test_utmatrix.exe
+     1>Done Building Project "C:\temp\tseplyaeva\mp2-lab2-matrix\sln\vc9\test_utmatrix.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.74

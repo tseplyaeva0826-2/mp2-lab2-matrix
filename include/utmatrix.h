@@ -62,14 +62,14 @@ public:
 template <class ValType>
 TVector<ValType>::TVector(int s, int si)
 {
-	if ((s>MAX_MATRIX_SIZE)|(si<0))
+	if ((s>MAX_MATRIX_SIZE) || (si<0) || (s<0)  )
 	{
 		throw "can`t be folded";
 	}
 	else
 	{
 
-		pVector = new ValType[s];
+		pVector = new ValType[ s ];
 		Size = s;
 		StartIndex = si;
 	}
@@ -95,8 +95,10 @@ ValType& TVector<ValType>::operator[](int pos)
 {
 	int n;
 	n = pos - StartIndex;
-	if ((n<0)|(n>MAX_VECTOR_SIZE))
-	{throw "can`t refer to elem" }
+	if ((n<0)||(n>Size))
+	{
+		throw "can`t refer to elem";
+	}
 	else
 	{
 		return pVector[n];
@@ -108,7 +110,7 @@ bool TVector<ValType>::operator==(const TVector &v) const
 {
 	bool t;
 	t = true;
-	if (Size != v.Size) { t = false; break; }
+	if (Size != v.Size) { t = false;  }
 	else
 	{
 		for (int i = 0; i < Size; i++)
@@ -128,17 +130,18 @@ bool TVector<ValType>::operator!=(const TVector &v) const
 {
 	bool t;
 	t = true;
-	if (Size == v.Size) { t = false; break; }
+	if (Size != v.Size) { t = true; }
 	else
 	{
 		for (int i = 0; i < Size; i++)
 		{
-			if (pVector[i] = v.pVector[i])
+			if (pVector[i] == v.pVector[i])
 			{
 				t =false; break;
 			}
 		}
 	}
+
 	return t;
 } /*-------------------------------------------------------------------------*/
 
@@ -263,7 +266,7 @@ public:
 template <class ValType>
 TMatrix<ValType>::TMatrix(int s): TVector<TVector<ValType> >(s)
 {
-	if ((s > MAX_MATRIX_SIZE)|(s<0))
+	if ((s > MAX_MATRIX_SIZE)||(s<0))
 	{
 		throw "can`t be folded";
 	}
@@ -288,7 +291,7 @@ bool TMatrix<ValType>::operator==(const TMatrix<ValType> &mt) const
 {
 	bool t;
 	t = true;
-	if (Size != mt.Size) { t = false; break; }
+	if (Size != mt.Size) { t = false; }
 	else
 	{
 		for (int i = 0; i < Size; i++) 
@@ -308,12 +311,12 @@ bool TMatrix<ValType>::operator!=(const TMatrix<ValType> &mt) const
 {
 	bool t;
 	t = true;
-	if (Size = mt.Size) { t = false; break; }
+	if (Size == mt.Size) { t = false; }
 	else
 	{
 		for (int i = 0; i < Size; i++)
 		{
-			if (pVector[i] = mt.pVector[i])
+			if (pVector[i] == mt.pVector[i])
 			{
 				t = false; break;
 			}
